@@ -1,0 +1,54 @@
+325CA Dragan Dan-Stefan
+
+
+	In aceasta tema am implementat o serie de comenzi intre mai multi
+clienti si un server :
+
+Comenzi client :
+
+1. listclients - Trimite un mesaj serverului prin care ii cere numele
+tuturor clientilor din baza sa de date. Serverul retine informatii
+despre clienti intr-un map, itereaza prin acesta si ii trimite
+clientului un mesaj cu toate numele din map, care vor fi ulterior
+afisate la consola clientului.
+
+2. infoclient - Trimite un mesaj serverului prin care ii cere
+informatii despre un anumit client. Acesta cauta in map si i le
+trimite pentru a fi afisate la iesirea standard.
+
+3. message - Sunt solicitate ip-ul si portul unui client serverului.
+Acesta le gaseste in map si le trimite, iar clientul stabileste
+conexiune cu partea solicitata si trimite un mesaj.
+
+4. broadcast - Similar, doar ca se solicita ip-urile si porturile
+tuturor clientilor si mesajul va fi trimis lor.
+
+5. sendfile - Se trimite serverului mesaj pentru a solicita ip-ul
+si portul unui alt client, se primesc aceste informatii si se va
+trimite numele fisierului si dimensiunea, dupa care se citeste
+dintr-un fisier si se trimit fluxuri de bytes clientului. Acesta
+va scrie intr-un fisier toate informatiile trimise.
+
+6. history - Se retin toate numele de fisiere si toate mesajele
+primite de un client intr-un vector de siruri de caractere, care
+va fi afisat la solicitarea acestei comenzi.
+
+7. quit - Clientul anunta serverul ca va inchide si inchide
+toate conexiunile.
+
+Comenzi server :
+
+1. status - Serverul itereaza prin map si afiseaza informatii despre
+fiecare client.
+
+2. kick - Elimina clientul respectiv din baza de date, ii trimite
+mesaj sa inchida conexiunea si il deconecteaza.
+
+3. quit - Serverul trimite mesaj clientilor sa inchida conexiunea,
+dupa care va iesi.
+
+Pentru comanda select() din client am ales un timeout de 10ms.
+
+Biografie:
+-schelet de laborator 8
+ 	 
